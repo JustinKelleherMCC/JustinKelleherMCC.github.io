@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>Hands Calculator - Kansas City Equine Directory</title>
+	<meta name="description" content="Kansas City Equine Directory is a school project by Justin Kelleher for providing information about local equine services in the Kansas City area.">
+	<meta name="author" content="Justin Kelleher">
+
+	<!-- Cascading Style Sheets -->
+	<link rel="stylesheet" href="css/styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	
+	<script src="js/calculatehands.js"></script>
+	<script src="js/modernizr.custom.05819.js"></script>
+</head>
+<body>
+	<!-- Header -->
+	<div class="header">
+		<h2>Kansas City Equine Directory</h2>
+	</div>
+	
+	<!-- Navbar -->
+	<div class="navbar">
+		<ul>
+			<li><a href="index.html">Home</a></li>
+			<li><a href="boarding.html">Boarding</a></li>
+			<li><a href="lessons.html">Riding Lessons</a></li>
+			<li><a class="active" href="#">Hands Calculator</a></li>
+			<li style="float: right"><a href="security.html">Security</a></li>
+			<li style="float: right"><a href="about.html">About</a></li>
+		</ul>
+	</div>
+	
+	<!-- Content -->
+	<div class="card">
+		<h2>Horse Hands Calculator</h2>
+		<p>A "hand" is a unit of measure equal to 4 inches, used to measure the height of a horse at the highest point of the withers.</p>
+		<form onclick="return false;">
+			Height of the horse in inches: <input type="text" id="heightInches"><br>
+			<input type="submit" value="Calculate" onclick="calculateHands();">
+			<p id="calculationResults"></p>
+			<p id="calculationComment"></p>
+		</form>
+	</div>
+	
+	<!-- Footer -->
+	<div class="footer">
+		<p>Copyright &copy; 2018 Justin Kelleher</p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>About - Kansas City Equine Directory</title>
+	<meta name="description" content="Kansas City Equine Directory is a school project by Justin Kelleher for providing information about local equine services in the Kansas City area.">
+	<meta name="author" content="Justin Kelleher">
+
+	<!-- Cascading Style Sheets -->
+	<link rel="stylesheet" href="css/styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	
+	<!-- JavaScript -->
+	<script src="js/contactform.js"></script>
+	<script src="js/modernizr.custom.05819.js"></script>
+</head>
+<body>
+	<!-- Header -->
+	<div class="header">
+		<h2>Kansas City Equine Directory</h2>
+	</div>
+	
+	<!-- Navbar -->
+	<div class="navbar">
+		<ul>
+			<li><a href="index.html">Home</a></li>
+			<li><a href="boarding.html">Boarding</a></li>
+			<li><a href="lessons.html">Riding Lessons</a></li>
+			<li><a href="handscalculator.html">Hands Calculator</a></li>
+			<li style="float: right"><a href="security.html">Security</a></li>
+			<li style="float: right"><a class="active" href="#">About</a></li>
+		</ul>
+	</div>
+
+	<!-- About the Site -->
+	<div class="card">
+		<p>This site is a class project for Justin Kelleher for CSIS 228 Advanced Web Development.</p>
+	</div>
+	
+	<!-- About the Author -->
+	<div class="card">
+		<h2>About the Author</h2>
+		<video width="480" height="360" controls>
+			<source src="vid/justin_jumping.mp4" type="video/mp4">
+			Your browser does not support the HTML5 video player.
+		</video>
+		<p>Justin has been riding horses since he was eight years old. He began Western, quickly learned English, then dabbled in natural horsemanship.</p>
+		<p>He recently got his first horse, Doc, who is shown warming up in the video above.</p>
+	</div>
+	
+	<!-- Contact -->
+	<div class="card">
+		<h2>Contact the Author</h2>
+		<form name="contact" onsubmit="return validateForm()">
+			Name:<br>
+			<input type="text" name="name"><br>
+			Email:<br>
+			<input type="text" name="email"><br>
+			Phone:<br>
+			<input type="text" name="phone"><br>
+			What is your preferred method of contact?<br>
+			<input type="radio" name="preferredContactMethod" value="email"> Email<br>
+			<input type="radio" name="preferredContactMethod" value="phone"> Phone<br>
+			Who should this be directed to?<br>
+			<input class="preferredContactMethod" type="checkbox" name="sendTo" value="justinKelleher"> Justin Kelleher<br>
+			<input class="preferredContactMethod" type="checkbox" name="sendTo" value="markMurtha"> Mark Murtha<br>
+			Message:<br>
+			<input type="text" name="message"><br>
+			Do you agree to our terms and policy?<br>
+			<select name="termsAndPolicy">
+				<option value="disagree">I disagree.</option>
+				<option value="agree">I agree.</option>
+			</select><br>
+			<input type="submit" value="Submit">
+		</form>
+	</div>
+
+	<!-- Footer -->
+	<div class="footer">
+		<p>Copyright &copy; 2018 Justin Kelleher</p>
+	</div>	
+</body>
+</html>
