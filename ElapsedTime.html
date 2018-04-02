@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>Elapsed Time</title>
+	
+	<script>
+		function calculateTimeDifference() {
+			// Variables
+			var enteredDate = new Date(document.getElementById("date").value);
+			var currentDate = new Date();
+
+			// Calculate time difference in milliseconds
+			var timeDifference = Math.abs(currentDate.getTime() - enteredDate.getTime());
+			
+			// Divide time difference by number of milliseconds in a year
+			var differenceYears = timeDifference / (1000 * 3600 * 24 * 365);
+			// Divide time difference by number of milliseconds in a month
+			var differenceMonths = timeDifference / (1000 * 3600 * 24 * 30);
+			// Divide time difference by number of milliseconds in a day
+			var differenceDays = timeDifference / (1000 * 3600 * 24);
+
+			// Write results to new document
+			document.write(differenceYears + " Years <br>");
+			document.write(differenceMonths + " Months <br>");
+			document.write(differenceDays + " Days");
+			return false;
+		}
+	</script>
+</head>
+<body>
+	<form onsubmit="return calculateTimeDifference();">
+		Date:
+		<input type="date" id="date">
+		<br>
+		<input type="submit" value="Calculate Elapsed Time">
+	</form>
+</body>
+</html> 
