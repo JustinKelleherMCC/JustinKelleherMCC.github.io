@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>Regular Expressions</title>
+	
+	<script>
+		function verifyForm() {
+			// Patterns
+			var emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/i;
+			var phonePattern = /^[0-9]{10,11}$/g;
+			var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/g;
+
+			// Variables
+			var email = document.getElementById("email").value;
+			var phone = document.getElementById("phone").value;
+			var password = document.getElementById("password").value;
+						
+			// Verify Email			
+			if (emailPattern.test(email) == false)
+			{
+				alert("Please enter a valid e-mail.");
+				return false;
+			}
+			
+			// Verify Phone			
+			if (phonePattern.test(phone) == false)
+			{
+				alert("Please enter a valid phone number.");
+				return false;
+			}
+			
+			// Verify Password			
+			if (passwordPattern.test(password) == false)
+			{
+				alert("Please enter a valid password.");
+				return false;
+			}
+			
+			return true;
+		}
+	</script>
+</head>
+<body>
+	<form onsubmit="return verifyForm();">
+		Email:
+		<input type="text" id="email">
+		<br>
+		Phone:
+		<input type="text" id="phone">
+		<br>
+		Password:
+		<input type="password" id="password">
+		<br>
+		<input type="submit" value="Submit">
+	</form>
+</body>
+</html> 
