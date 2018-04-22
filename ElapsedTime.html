@@ -6,35 +6,47 @@
 	<title>Elapsed Time</title>
 	
 	<script>
-		function calculateTimeDifference() {
-			// Variables
-			var enteredDate = new Date(document.getElementById("date").value);
+		function calculateTimedifferenceerence() {
 			var currentDate = new Date();
+			var enteredDate = new Date(document.getElementById("date").value);
+			var years = 0;
+			var months = 0;
+			var days = 0;
 
-			// Calculate time difference in milliseconds
-			var timeDifference = Math.abs(currentDate.getTime() - enteredDate.getTime());
-			
-			// Divide time difference by number of milliseconds in a year
-			var differenceYears = timeDifference / (1000 * 3600 * 24 * 365);
-			// Divide time difference by number of milliseconds in a month
-			var differenceMonths = timeDifference / (1000 * 3600 * 24 * 30);
-			// Divide time difference by number of milliseconds in a day
-			var differenceDays = timeDifference / (1000 * 3600 * 24);
+			// Get the differenceerence between the two dates in miliseconds
+			var difference = Math.abs(currentDate - enteredDate);
 
-			// Write results to new document
-			document.write(differenceYears + " Years <br>");
-			document.write(differenceMonths + " Months <br>");
-			document.write(differenceDays + " Days");
-			return false;
+			// The while statements will subtract the time measurement from the difference until it cannot anymore, then it will move to the next while statement.
+
+			// Years (1000 ms * 60 s * 60 m * 24 hrs * 30 days * 12 months)
+			while (difference >= 1000 * 60 * 60 * 24 * 30 * 12) {
+				difference = difference - 1000 * 60 * 60 * 24 * 30 * 12;
+				years = years + 1;
+			}
+
+			//Months (1000 ms * 60 s * 60 m * 24 hrs * 30 days)
+			while (difference >= 1000 * 60 * 60 * 24 * 30) {
+				difference = difference - 1000 * 60 * 60 * 24 * 30;
+				months = months + 1;
+			}
+
+			// Days (1000 ms * 60 s * 60 m * 24 hrs)
+			while (difference >= 1000 * 60 * 60 * 24) {
+				difference = difference - 1000 * 60 * 60 * 24;
+				days = days + 1;
+			}
+
+			//Display the result
+			document.getElementById("displayInfo").innerHTML = years + " Years, " + months + " Months, " + days + " Days";
 		}
-	</script>
+
+		</script>
 </head>
 <body>
-	<form onsubmit="return calculateTimeDifference();">
-		Date:
-		<input type="date" id="date">
-		<br>
-		<input type="submit" value="Calculate Elapsed Time">
-	</form>
+	<p>Date:</p>
+	<input type="date" id="date">
+	<br><br>
+	<button onclick="calculateTimedifferenceerence()">Calculate Elapsed Time</button>
+	<p id="displayInfo"></p>
 </body>
-</html> 
+</html>
