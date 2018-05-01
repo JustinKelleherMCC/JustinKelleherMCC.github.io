@@ -47,17 +47,17 @@
 	<p>Regular expressions are patterns used to match character combinations in strings.</p>
 	<p>Each input box has the regular experssion to validate the input listed above with a short explanation.</p>
 	<form onsubmit="return verifyForm();">
-		Email:
+		<p><b>Email:</b></p>
 		<p>Regular Expression Pattern: /^[^@\s]+@[^@\s]+\.[^@\s]+$/i</p>
 		<input type="text" id="email">
 		<br>
-		Phone:
+		<b><p>Phone:</b></p>
 		<p>Regular Expression Pattern: /^[0-9]{10,11}$/g</p>
 		<p>The ^ matches the beginning on the input.  The [0-9] matches a character in the range 0 to 9.  The {10,11} requires the set to be between 10 and 11 characters.  The $ matches the end of the string.</p>
 		<input type="text" id="phone">
 		<br>
 		<p>Regular Expression Pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/g</p>
-		Password:
+		<b><p>Password:</b></p>
 		<input type="password" id="password">
 		<br>
 		<input type="submit" value="Submit">
