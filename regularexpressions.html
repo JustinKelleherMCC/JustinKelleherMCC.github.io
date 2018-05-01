@@ -49,6 +49,7 @@
 	<form onsubmit="return verifyForm();">
 		<p><b>Email:</b></p>
 		<p>Regular Expression Pattern: /^[^@\s]+@[^@\s]+\.[^@\s]+$/i</p>
+		<p>The ^ matches the beginning on the input. The [^@\s]+ @ requires at one character before the @ symbol. The [^@\s]+\. requires at one character before the period symbol. The [^@\s]+ requires at one character after the period symbol. The $ matches the end of the string.</p>
 		<input type="text" id="email">
 		<br>
 		<b><p>Phone:</b></p>
