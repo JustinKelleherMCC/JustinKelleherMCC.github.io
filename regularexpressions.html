@@ -58,6 +58,7 @@
 		<br>
 		<b><p>Password:</b></p>
 		<p>Regular Expression Pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/g</p>
+		<p>The ^ matches the beginning on the input. The (?=.*[a-z]) requires at least one lower case letter in the whole string. The (?=.*\d) requires at least one digit (0 – 9) in the whole string. The (?=.*[$@$!%*?&]) requires at least one symbol that is $@$!%*?& in the whole string.  The [A-Za-z\d$@$!%*?&]{8,} requires at least eight or more recognized characters. The $ matches the end of the string.</p>
 		<input type="password" id="password">
 		<br>
 		<input type="submit" value="Submit">
