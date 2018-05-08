@@ -4,49 +4,62 @@
 	<title>CSIS 228 Car Rental</title>
 	<meta charset="utf-8">
 	<script type="text/javascript">
-		function setCookies()
+		var today = new Date();
+		var expiry = new Date(today.getTime() + 7 * 24 * 3600 * 1000);
+
+		// Sets a cookie for each field in the reservation form and makes them expire after one week
+		function setCookies(name, value)
 		{
-			// this function will set cookies for each field in the reservation form, and set them to expire after one day
-			
-			var date = new Date();
-			date.setTime(date.getTime() + (7 * 24 * 60 * 60 *1000));
-			var expires = "expires="+ date.toUTCString();
-			
-			document.cookie = "txtName=" + document.forms['frmRental'].elements['txtName'].value + ";" + expires + ";path=/";
-			document.cookie = "txtAddress=" + document.forms['frmRental'].elements['txtAddress'].value + ";" + expires + ";path=/";
-			document.cookie = "txtCity=" + document.forms['frmRental'].elements['txtCity'].value + ";" + expires + ";path=/";
-			document.cookie = "txtState=" + document.forms['frmRental'].elements['txtState'].value + ";" + expires + ";path=/";
-			document.cookie = "txtZip=" + document.forms['frmRental'].elements['txtZip'].value + ";" + expires + ";path=/";
-			document.cookie = "txtEmail=" + document.forms['frmRental'].elements['txtEmail'].value + ";" + expires + ";path=/";
-			document.cookie = "txtCarType=" + document.forms['frmRental'].elements['txtCarType'].value + ";" + expires + ";path=/";
-			document.cookie = "txtPickupDate=" + document.forms['frmRental'].elements['txtPickupDate'].value + ";" + expires + ";path=/";
-			document.cookie = "txtReturnDate=" + document.forms['frmRental'].elements['txtReturnDate'].value + ";" + expires + ";path=/";
-			
-			alert ("Your reservation has been saved.");
-			
+			document.cookie=name + "=" + escape(value) + "; path=/; expires=" + expiry.toGMTString();
 		} // end function setCookies()
+
+		// Stores the cookies
+		function storeValues()
+		{
+			setCookies("txtName", frmRental.txtName.value);
+			setCookies("txtAddress", frmRental.txtAddress.value);
+			setCookies("txtCity", frmRental.txtCity.value);
+			setCookies("txtState", frmRental.txtState.value);
+			setCookies("txtZip", frmRental.txtZip.value);
+			setCookies("txtEmail", frmRental.txtEmail.value);
+			setCookies("txtCarType", frmRental.txtCarType.value);
+			setCookies("txtPickupDate", frmRental.txtPickupDate.value);
+			setCookies("txtReturnDate", frmRental.txtReturnDate.value);
+			alert ("Your reservation has been saved.");
+		} // end function storeValues()
 		
+		// Gets the cookies
+		function getCookie(name)
+		{
+			var regex = new RegExp(name + "=([^;]+)");
+			var value = regex.exec(document.cookie);
+			return (value != null) ? unescape(value[1]) : null;
+		} // end function getCookie()
+
+		// Read the saved cookies and repopulates the form with the cookie values
 		function displayCookies()
 		{
-			// this function will read the saved cookies, and repopulate the form with the cookie values
-			
-			var cookieString = decodeURIComponent(document.cookie);
-			var cookieArray = cookieString.split("; ");
-			
 			if (document.cookie == 0)
 			{
 				alert("You have not made a reservation");
 			}
 			else
 			{
-				// retrieve each cookie, and display the cookie value in the appropriate form field			
+				if(txtName = getCookie("txtName")) document.frmRental.txtName.value = txtName;
+				if(txtAddress = getCookie("txtAddress")) document.frmRental.txtAddress.value = txtAddress;
+				if(txtCity = getCookie("txtCity")) document.frmRental.txtCity.value = txtCity;
+				if(txtState = getCookie("txtState")) document.frmRental.txtState.value = txtState;
+				if(txtZip = getCookie("txtZip")) document.frmRental.txtZip.value = txtZip;
+				if(txtEmail = getCookie("txtEmail")) document.frmRental.txtEmail.value = txtEmail;
+				if(txtCarType = getCookie("txtCarType")) document.frmRental.txtCarType.value = txtCarType;
+				if(txtPickupDate = getCookie("txtPickupDate")) document.frmRental.txtPickupDate.value = txtPickupDate;
+				if(txtReturnDate = getCookie("txtReturnDate")) document.frmRental.txtReturnDate.value = txtReturnDate;
 			}
-			
 		} // end function displayCookies()
+
 	
 	</script>
 </head>
-
 <body>
 <h1>CSIS 228 Car Rental</h1>
     <form name="frmRental" method="post">
@@ -73,11 +86,10 @@
         <br>
         <input type="date" name="txtReturnDate" id="txtReturnDate" size="10">
         <br><br>
-        <input type="button" name="btnSave" value="Save Reservation" onClick="setCookies()"> 
+        <input type="button" name="btnSave" value="Save Reservation" onClick="storeValues()"> 
         <input type="reset" value="Reset Form"> 
         <input type="button" name="btnRedisplay" value="Redisplay Reservation" onClick="displayCookies()">
     </form>
 
 </body>
-
 </html>
