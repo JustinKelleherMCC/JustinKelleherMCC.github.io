@@ -27,6 +27,7 @@ function geoTest()
 
 function createMap(position)
 {
+	clearTimeout(waitForUser);
 	var Lat = position.coords.latitude;
 	var Lng = position.coords.longitude;
 	
